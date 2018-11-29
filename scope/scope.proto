@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package scopes;
+
+import "google/protobuf/descriptor.proto";
+
+option go_package="scopepb";
+
+extend google.protobuf.MethodOptions {
+    MyScopes scope = 9966;
+}
+
+message MyScopes {
+    repeated string path = 1;
+}

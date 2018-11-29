@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+import "scope/scope.proto";
+
+package example;
+
+option go_package = "example/pb";
+
+
+message User {
+    string id = 1;
+    repeated string blocked = 2;
+
+    map<string, string> extra = 3;
+    .google.protobuf.Timestamp hire_date = 4;
+}
+
+message GetUserReq{
+    string user_id = 1;
+    Demo tent_id = 2;
+    repeated UserEmails user_email = 3;
+}
+
+message UserEmails {
+    string email = 1;
+    repeated Check checks = 2;
+}
+
+
+message Check {
+    string check = 1;
+    repeated Val check_id = 2;
+}
+
+message Val {
+    string val_id = 1;
+}
+
+message Demo {
+    string tent = 1;
+}
+message UpdateUserReq {
+    string id = 1;
+    repeated UserEmail email_ids = 2;
+}
+
+message UserEmail {
+    repeated string emails = 1;
+}
+
+service Users {
+    rpc AddUser(User) returns (.google.protobuf.Empty){
+        option (scopes.scope) = {
+            resource: "/users/{id}/cards.read/{blocked}"
+            resource: "/users/{id}/cards/user.write"
+        };
+    };
+    rpc GetUser(GetUserReq) returns (User) {
+        option (scopes.scope) = {
+            resource: "/{user_email.email}/users/{user_id}/cards/{tent_id.tent}/email/{user_email.email.checks.check.check_id.val_id}"
+            resource: "/users/{user_id}/cards/{tent_id.tent}/ex.write"
+        };
+    };
+    rpc UpdateUser(UpdateUserReq) returns (.google.protobuf.Empty){
+        option (scopes.scope) = {
+            resource: "/users/{email_ids.emails}/cards.read/"
+            resource: "/users/{id}/cards/user.write"
+        };
+    }
+
+}
