@@ -1,4 +1,4 @@
-# protoc-gen-rights
+# protoc-gen-scopes
 
-Generates code for rights from proto messages for rights implememntation .
+Generates code for scopes from proto messages for scopes implememntation .
 

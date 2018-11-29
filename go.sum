@@ -156,6 +156,8 @@ github.com/gobuffalo/packd v0.0.0-20181114190715-f25c5d2471d7 h1:7AZMyDyRxIm2cbS
 github.com/gobuffalo/packd v0.0.0-20181114190715-f25c5d2471d7/go.mod h1:Yf2toFaISlyQrr5TfO3h6DB9pl9mZRmyvBGQb/aQ/pI=
 github.com/gobuffalo/packd v0.0.0-20181120223505-a1fb7d1c9873 h1:PZSi+YUw8ZWRpr1LUckPSXbcR4TL2qM6D9X79M9ZeG4=
 github.com/gobuffalo/packd v0.0.0-20181120223505-a1fb7d1c9873/go.mod h1:Foenia9ZvITEvG05ab6XpiD5EfBHPL8A6hush8SJ0o8=
+github.com/gobuffalo/packd v0.0.0-20181124090624-311c6248e5fb h1:039sqjIDVgXXcB5hOIKaSBL1kZpQj9u8WLXuu2xOcX8=
+github.com/gobuffalo/packd v0.0.0-20181124090624-311c6248e5fb/go.mod h1:Foenia9ZvITEvG05ab6XpiD5EfBHPL8A6hush8SJ0o8=
 github.com/gobuffalo/packr v1.13.7 h1:2uZgLd6b/W4yRBZV/ScaORxZLNGMHO0VCvqQNkKukNA=
 github.com/gobuffalo/packr v1.13.7/go.mod h1:KkinLIn/n6+3tVXMwg6KkNvWwVsrRAz4ph+jgpk3Z24=
 github.com/gobuffalo/packr v1.15.0/go.mod h1:t5gXzEhIviQwVlNx/+3SfS07GS+cZ2hn76WLzPp6MGI=
@@ -166,6 +168,8 @@ github.com/gobuffalo/packr v1.20.0/go.mod h1:JDytk1t2gP+my1ig7iI4NcVaXr886+N0ecU
 github.com/gobuffalo/packr v1.21.0/go.mod h1:H00jGfj1qFKxscFJSw8wcL4hpQtPe1PfU2wa6sg/SR0=
 github.com/gobuffalo/packr v1.21.3 h1:TJCUm5Kl/Ykl13kZ7KiJHATMtqEiOtQEubywPsAzt0U=
 github.com/gobuffalo/packr v1.21.3/go.mod h1:IODzKNHqDtRH8Re8hDrLJeOZGJmY+66vmqb1kMgM69k=
+github.com/gobuffalo/packr v1.21.5 h1:wPOC4Cg5tGYDImw601x94a2d2PEa4KgVHzXMFR2WlBk=
+github.com/gobuffalo/packr v1.21.5/go.mod h1:zCvDxrZzFmq5Xd7Jw4vaGe/OYwzuXnma31D2EbTHMWk=
 github.com/gobuffalo/packr/v2 v2.0.0-rc.5/go.mod h1:e6gmOfhf3KmT4zl2X/NDRSfBXk2oV4TXZ+NNOM0xwt8=
 github.com/gobuffalo/packr/v2 v2.0.0-rc.6 h1:0ZD59uJI9AIyeSICAJ6CaJ4/TxBUXy77vqgrS08qYXg=
 github.com/gobuffalo/packr/v2 v2.0.0-rc.6/go.mod h1:3YjD2XKE9MrT6G0Ae/S7Am479TfqrGSFJTPfElJirw0=

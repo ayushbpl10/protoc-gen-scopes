@@ -54,20 +54,20 @@ message UserEmail {
 service Users {
     rpc AddUser(User) returns (.google.protobuf.Empty){
         option (scopes.scope) = {
-            resource: "/users/{id}/cards.read/{blocked}"
-            resource: "/users/{id}/cards/user.write"
+            path: "/users/{id}/cards.read/{blocked}"
+            path: "/users/{id}/cards/user.write"
         };
     };
     rpc GetUser(GetUserReq) returns (User) {
         option (scopes.scope) = {
-            resource: "/{user_email.email}/users/{user_id}/cards/{tent_id.tent}/email/{user_email.email.checks.check.check_id.val_id}"
-            resource: "/users/{user_id}/cards/{tent_id.tent}/ex.write"
+            path: "/{user_email.email}/users/{user_id}/cards/{tent_id.tent}/email/{user_email.email.checks.check.check_id.val_id}"
+            path: "/users/{user_id}/cards/{tent_id.tent}/ex.write"
         };
     };
     rpc UpdateUser(UpdateUserReq) returns (.google.protobuf.Empty){
         option (scopes.scope) = {
-            resource: "/users/{email_ids.emails}/cards.read/"
-            resource: "/users/{id}/cards/user.write"
+            path: "/users/{email_ids.emails}/cards.read/"
+            path: "/users/{id}/cards/user.write"
         };
     }
 
