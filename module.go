@@ -65,7 +65,7 @@ func (m *rightsGen) Execute(targets map[string]pgs.File, packages map[string]pgs
 
 					for _, path :=  range scope.Path {
 						resource := Resource{ResourceStringWithCurlyBraces:path}
-						rpcModel.Resources = append(rpcModel.Resources, resource)
+						rpcModel.Resource = resource
 					}
 
 					service.Rpcs = append(service.Rpcs, rpcModel)
@@ -89,7 +89,7 @@ type rpcModel struct {
 	RpcName     string
 	Input       string
 	Output      string
-	Resources   []Resource
+	Resource   Resource
 }
 
 type Resource struct {

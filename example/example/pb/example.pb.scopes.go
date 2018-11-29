@@ -2,18 +2,12 @@
 
 package scopesval
 
-import "fmt"
 import "context"
 import "google.golang.org/grpc/codes"
 import "google.golang.org/grpc/status"
 import "go.uber.org/fx"
 import "go.appointy.com/google/pb/rights"
-import "go.appointy.com/google/userinfo"
 import "github.com/ayushbpl10/protoc-gen-rights/example/rights"
-
-import "github.com/golang/protobuf/ptypes/timestamp"
-
-import "github.com/golang/protobuf/ptypes/empty"
 
 import "github.com/golang/protobuf/ptypes/empty"
 
@@ -47,19 +41,10 @@ func NewScopesUsersServer(c rights.ScopeValidatorsClient, s pb.UsersServer, u ri
 
 func (s *ScopesUsersServer) AddUser(ctx context.Context, rightsvar *pb.User) (*empty.Empty, error) {
 
-	ResourcePath := make([]string, 0)
-
-	ResourcePath = append(ResourcePath,
-
-		"/users/{id}/cards.read/{blocked}",
-
-		"/users/{id}/cards/user.write",
-	)
-
 	res, err := s.rightsCli.IsValid(ctx, &rights.IsValidReq{
-		ResourcePathOR: ResourcePath,
-		UserId:         s.user.UserID(ctx),
-		ModuleName:     "Users",
+		ResourcePath: "/users/{id}/cards.read/{blocked}",
+		UserId:       s.user.UserID(ctx),
+		ModuleName:   "Users",
 	})
 	if err != nil {
 		return nil, err
@@ -73,19 +58,10 @@ func (s *ScopesUsersServer) AddUser(ctx context.Context, rightsvar *pb.User) (*e
 
 func (s *ScopesUsersServer) GetUser(ctx context.Context, rightsvar *pb.GetUserReq) (*pb.User, error) {
 
-	ResourcePath := make([]string, 0)
-
-	ResourcePath = append(ResourcePath,
-
-		"/{user_email.email}/users/{user_id}/cards/{tent_id.tent}/email/{user_email.email.checks.check.check_id.val_id}",
-
-		"/users/{user_id}/cards/{tent_id.tent}/ex.write",
-	)
-
 	res, err := s.rightsCli.IsValid(ctx, &rights.IsValidReq{
-		ResourcePathOR: ResourcePath,
-		UserId:         s.user.UserID(ctx),
-		ModuleName:     "Users",
+		ResourcePath: "/{user_email.email}/users/{user_id}/cards/{tent_id.tent}/email/{user_email.email.checks.check.check_id.val_id}",
+		UserId:       s.user.UserID(ctx),
+		ModuleName:   "Users",
 	})
 	if err != nil {
 		return nil, err
@@ -99,19 +75,10 @@ func (s *ScopesUsersServer) GetUser(ctx context.Context, rightsvar *pb.GetUserRe
 
 func (s *ScopesUsersServer) UpdateUser(ctx context.Context, rightsvar *pb.UpdateUserReq) (*empty.Empty, error) {
 
-	ResourcePath := make([]string, 0)
-
-	ResourcePath = append(ResourcePath,
-
-		"/users/{email_ids.emails}/cards.read/",
-
-		"/users/{id}/cards/user.write",
-	)
-
 	res, err := s.rightsCli.IsValid(ctx, &rights.IsValidReq{
-		ResourcePathOR: ResourcePath,
-		UserId:         s.user.UserID(ctx),
-		ModuleName:     "Users",
+		ResourcePath: "/users/{email_ids.emails}/cards.read/",
+		UserId:       s.user.UserID(ctx),
+		ModuleName:   "Users",
 	})
 	if err != nil {
 		return nil, err

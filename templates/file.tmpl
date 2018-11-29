@@ -52,20 +52,8 @@ import "{{ .}}"
     {{ range $rpc := $service.Rpcs }}
         func (s *Scopes{{$service.ServiceName}}Server) {{$rpc.RpcName}}(ctx context.Context, rightsvar *{{ $rpc.PackageName }}.{{$rpc.Input}}) ({{if eq $rpc.Output "Empty"}}*empty.{{$rpc.Output}}{{else}}*{{ $rpc.PackageName }}.{{$rpc.Output}}{{end}}, error) {
 
-            ResourcePath := make([]string,0)
-
-            ResourcePath = append(ResourcePath,
-
-            {{range $resource := $rpc.Resources}}
-
-                 "{{$resource.ResourceStringWithCurlyBraces}}",
-
-            {{end}}
-
-            )
-
             res, err := s.rightsCli.IsValid(ctx, &rights.IsValidReq{
-                ResourcePathOR  :  ResourcePath,
+                ResourcePath    :  "{{$rpc.Resource.ResourceStringWithCurlyBraces}}",
                 UserId          :  s.user.UserID(ctx),
                 ModuleName      :  "{{$service.ServiceName}}",
             })

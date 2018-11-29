@@ -11,5 +11,5 @@ extend google.protobuf.MethodOptions {
 }
 
 message MyScopes {
-    repeated string path = 1;
+    string path = 1;
 }
