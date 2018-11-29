@@ -47,9 +47,9 @@ func NewScopesUsersServer(c rights.ScopeValidatorsClient, s pb.UsersServer, u ri
 
 func (s *ScopesUsersServer) AddUser(ctx context.Context, rightsvar *pb.User) (*empty.Empty, error) {
 
-	ResourcePathOR := make([]string, 0)
+	ResourcePath := make([]string, 0)
 
-	ResourcePathOR = append(ResourcePath,
+	ResourcePath = append(ResourcePath,
 
 		"/users/{id}/cards.read/{blocked}",
 
@@ -73,9 +73,9 @@ func (s *ScopesUsersServer) AddUser(ctx context.Context, rightsvar *pb.User) (*e
 
 func (s *ScopesUsersServer) GetUser(ctx context.Context, rightsvar *pb.GetUserReq) (*pb.User, error) {
 
-	ResourcePathOR := make([]string, 0)
+	ResourcePath := make([]string, 0)
 
-	ResourcePathOR = append(ResourcePath,
+	ResourcePath = append(ResourcePath,
 
 		"/{user_email.email}/users/{user_id}/cards/{tent_id.tent}/email/{user_email.email.checks.check.check_id.val_id}",
 
@@ -99,9 +99,9 @@ func (s *ScopesUsersServer) GetUser(ctx context.Context, rightsvar *pb.GetUserRe
 
 func (s *ScopesUsersServer) UpdateUser(ctx context.Context, rightsvar *pb.UpdateUserReq) (*empty.Empty, error) {
 
-	ResourcePathOR := make([]string, 0)
+	ResourcePath := make([]string, 0)
 
-	ResourcePathOR = append(ResourcePath,
+	ResourcePath = append(ResourcePath,
 
 		"/users/{email_ids.emails}/cards.read/",
 

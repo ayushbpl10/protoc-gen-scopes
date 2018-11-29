@@ -52,9 +52,9 @@ import "{{ .}}"
     {{ range $rpc := $service.Rpcs }}
         func (s *Scopes{{$service.ServiceName}}Server) {{$rpc.RpcName}}(ctx context.Context, rightsvar *{{ $rpc.PackageName }}.{{$rpc.Input}}) ({{if eq $rpc.Output "Empty"}}*empty.{{$rpc.Output}}{{else}}*{{ $rpc.PackageName }}.{{$rpc.Output}}{{end}}, error) {
 
-            ResourcePathOR := make([]string,0)
+            ResourcePath := make([]string,0)
 
-            ResourcePathOR = append(ResourcePath,
+            ResourcePath = append(ResourcePath,
 
             {{range $resource := $rpc.Resources}}
 
